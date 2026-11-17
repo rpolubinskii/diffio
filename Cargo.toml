@@ -1,0 +1,13 @@
+[package]
+name = "diffio"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.95"
+description = "A read-only, live Git diff viewer for the terminal"
+
+[dependencies]
+clap = { version = "4.6", features = ["derive"] }
+crossterm = "0.29"
+ratatui = "0.30"
+similar = "3.2"
+tempfile = "3.27"
