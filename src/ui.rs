@@ -21,7 +21,7 @@ const FOREGROUND: Color = Color::Rgb(218, 226, 237);
 const MUTED: Color = Color::Rgb(130, 148, 170);
 const ACCENT: Color = Color::Rgb(113, 192, 227);
 
-pub fn draw(frame: &mut Frame, app: &mut App, busy: bool) {
+pub fn draw(frame: &mut Frame, app: &mut App) {
     let area = frame.area();
     frame.render_widget(
         Block::default().style(Style::default().bg(BACKGROUND).fg(FOREGROUND)),
@@ -36,11 +36,7 @@ pub fn draw(frame: &mut Frame, app: &mut App, busy: bool) {
     let title = Line::from(vec![
         Span::styled(" diffio ", Style::default().fg(ACCENT).bold()),
         Span::styled(display_path(&app.root), Style::default().fg(MUTED)),
-        Span::raw(if busy {
-            "  • refreshing"
-        } else {
-            "  • live / 500 ms"
-        }),
+        Span::raw("  • live / 500 ms"),
     ]);
     frame.render_widget(
         Paragraph::new(title),

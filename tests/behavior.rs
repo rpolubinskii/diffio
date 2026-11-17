@@ -431,7 +431,7 @@ fn render_app() -> App {
 
 fn render(app: &mut App, width: u16, height: u16) -> Terminal<TestBackend> {
     let mut terminal = Terminal::new(TestBackend::new(width, height)).unwrap();
-    terminal.draw(|frame| ui::draw(frame, app, false)).unwrap();
+    terminal.draw(|frame| ui::draw(frame, app)).unwrap();
     terminal
 }
 

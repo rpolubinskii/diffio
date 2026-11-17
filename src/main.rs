@@ -71,10 +71,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             worker.request(app.request())?;
             app.refresh_requested = false;
             last_refresh = Instant::now();
-            redraw = true;
         }
         if redraw {
-            terminal.draw(|frame| ui::draw(frame, &mut app, worker.busy()))?;
+            terminal.draw(|frame| ui::draw(frame, &mut app))?;
             redraw = false;
         }
         if event::poll(Duration::from_millis(40))? {
